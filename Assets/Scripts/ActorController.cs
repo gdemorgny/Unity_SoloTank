@@ -9,15 +9,29 @@ public class ActorController : MonoBehaviour
     [SerializeField] protected GameObject BulletSpawnPosition;
     [SerializeField] protected float DelayValue = 2f;
     [SerializeField] protected GameObject _head;
-
+    private bool _isArleadyFiring = false;
     // Start is called before the first frame update
     protected void Fire()
     {
-        Instantiate<GameObject>(BulletPrefab, BulletSpawnPosition.transform.position, BulletSpawnPosition.transform.rotation);
+        if (!_isArleadyFiring)
+        {
+            _isArleadyFiring = true;
+            StartCoroutine(FireWithDelay());
+
+        }
     }
 
     protected void RotateHeadTo(Vector3 targetPosition)
     {
         _head.transform.LookAt(targetPosition);
+    }
+
+    IEnumerator FireWithDelay()
+    {
+        Instantiate<GameObject>(BulletPrefab, BulletSpawnPosition.transform.position, BulletSpawnPosition.transform.rotation);
+
+        yield return new WaitForSeconds(DelayValue);
+        
+        _isArleadyFiring = false;
     }
 }
