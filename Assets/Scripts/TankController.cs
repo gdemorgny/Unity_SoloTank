@@ -9,9 +9,11 @@ public class TankController : ActorController
 
     [SerializeField] private float _angleSpeed = 20f;
 
+
     void Update()
     {
         Move();
+        AimToMouse();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Fire();
@@ -39,5 +41,17 @@ public class TankController : ActorController
 
         }
 
+    }
+
+    private void AimToMouse()
+    {
+        Ray rayToMouse = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(rayToMouse.origin, rayToMouse.direction * 20f,Color.red);
+        RaycastHit hit;
+        if (Physics.Raycast(rayToMouse, out hit))
+        {
+            RotateHeadTo(new Vector3(hit.point.x, _head.transform.position.y, hit.point.z));
+        }  
+                
     }
 }

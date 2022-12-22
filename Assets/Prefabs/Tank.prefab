@@ -247,6 +247,7 @@ MonoBehaviour:
   _forwardSpeed: 0.2
   _backwardSpeed: 0.2
   _angleSpeed: 20
+  _head: {fileID: 1913065489534397966}
 --- !u!1 &7186871618551643536
 GameObject:
   m_ObjectHideFlags: 0
