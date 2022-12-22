@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float _speed;
+
     void Start()
     {
-        
+        GetComponent<Rigidbody>().velocity = transform.up*_speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        Destroy(gameObject);
     }
 }

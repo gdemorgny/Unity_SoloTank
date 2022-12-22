@@ -12,6 +12,10 @@ public class TankController : ActorController
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
     }
 
     private void Move()
