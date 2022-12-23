@@ -49,7 +49,7 @@ public class ActorController : MonoBehaviour
         }
     }
 
-    private void Destruction()
+    protected virtual void Destruction()
     {
         Destroy(gameObject);
     }
