@@ -243,11 +243,11 @@ MonoBehaviour:
   LifePoint: 1
   BulletPrefab: {fileID: 1574936848863543116, guid: 0dbc4facb0fff8e499cc04b379725a5e, type: 3}
   BulletSpawnPosition: {fileID: 1884185299305442550}
-  DelayValue: 2
+  DelayValue: 1
+  _head: {fileID: 1913065489534397966}
   _forwardSpeed: 0.2
   _backwardSpeed: 0.2
   _angleSpeed: 20
-  _head: {fileID: 1913065489534397966}
 --- !u!1 &7186871618551643536
 GameObject:
   m_ObjectHideFlags: 0

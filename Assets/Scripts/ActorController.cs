@@ -15,8 +15,8 @@ public class ActorController : MonoBehaviour
     {
         if (!_isArleadyFiring)
         {
-            _isArleadyFiring = true;
             StartCoroutine(FireWithDelay());
+            _isArleadyFiring = true;
 
         }
     }
@@ -26,12 +26,31 @@ public class ActorController : MonoBehaviour
         _head.transform.LookAt(targetPosition);
     }
 
+    // coroutine = nouveau thread
+    // Appel de coroutine : StartCoroutine(<NomDeLIEnumerator>)
     IEnumerator FireWithDelay()
     {
         Instantiate<GameObject>(BulletPrefab, BulletSpawnPosition.transform.position, BulletSpawnPosition.transform.rotation);
-
+        // yield return OBLIGATOIRE
+        // d'autre yield return sont accessible dont WaitUntilEndOfFram.
+        //Dans  notre cas nous voulons attendre un durée fixe : WaitForSeconds(<DelayD'attente>)
         yield return new WaitForSeconds(DelayValue);
         
         _isArleadyFiring = false;
+    }
+
+    public void ApplyDamage(int damage)
+    {
+
+        LifePoint -=  damage;
+        if (LifePoint <= 0)
+        {
+            Destruction();
+        }
+    }
+
+    private void Destruction()
+    {
+        Destroy(gameObject);
     }
 }
