@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9234a006b3dac4cab3bbf7e62e1820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AppData: {fileID: 11400000, guid: 0bf4198fb5ad2514ab3892f44eb1d83e, type: 2}
   LifePoint: 1
   BulletPrefab: {fileID: 1574936848863543116, guid: 0dbc4facb0fff8e499cc04b379725a5e, type: 3}
   BulletSpawnPosition: {fileID: 8120958841388122026}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActorController : MonoBehaviour
 {
+    
+    [SerializeField] protected AppDatas AppData;
     [SerializeField] protected int LifePoint = 1;
     [SerializeField] protected GameObject BulletPrefab;
     [SerializeField] protected GameObject BulletSpawnPosition;
@@ -33,15 +35,14 @@ public class ActorController : MonoBehaviour
         Instantiate<GameObject>(BulletPrefab, BulletSpawnPosition.transform.position, BulletSpawnPosition.transform.rotation);
         // yield return OBLIGATOIRE
         // d'autre yield return sont accessible dont WaitUntilEndOfFram.
-        //Dans  notre cas nous voulons attendre un durée fixe : WaitForSeconds(<DelayD'attente>)
+        //Dans  notre cas nous voulons attendre un durï¿½e fixe : WaitForSeconds(<DelayD'attente>)
         yield return new WaitForSeconds(DelayValue);
         
         _isArleadyFiring = false;
     }
 
-    public void ApplyDamage(int damage)
+    public virtual void ApplyDamage(int damage)
     {
-
         LifePoint -=  damage;
         if (LifePoint <= 0)
         {

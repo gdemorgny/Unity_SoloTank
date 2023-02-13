@@ -158,7 +158,6 @@ GameObject:
   - component: {fileID: 7713818862863169758}
   - component: {fileID: 2364181021348608469}
   - component: {fileID: 7376665416438384193}
-  - component: {fileID: 4016478904189193211}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -232,19 +231,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4016478904189193211
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913065489534397966}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2846008438483272232
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +244,7 @@ GameObject:
   - component: {fileID: 3983573943170418589}
   - component: {fileID: 1023525128355150614}
   - component: {fileID: 6853557356070419525}
+  - component: {fileID: 5125971513843676608}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -357,15 +344,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628151fad84d4b8499843b3edfc8f7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AppData: {fileID: 11400000, guid: 0bf4198fb5ad2514ab3892f44eb1d83e, type: 2}
   LifePoint: 1
   BulletPrefab: {fileID: 1574936848863543116, guid: 0dbc4facb0fff8e499cc04b379725a5e, type: 3}
   BulletSpawnPosition: {fileID: 1884185299305442550}
   DelayValue: 1
   _head: {fileID: 1913065489534397966}
+  _playerData: {fileID: 11400000, guid: 30a2f39b20b80134aa346c146536c4e1, type: 2}
   _forwardSpeed: 2
   _backwardSpeed: 2
   _angleSpeed: 20
   _cameraLocator: {fileID: 1730435699}
+--- !u!135 &5125971513843676608
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846008438483272232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.29907978
+  m_Center: {x: 0, y: 0.51227, z: 0}
 --- !u!1 &7186871618551643536
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +379,6 @@ GameObject:
   - component: {fileID: 1317528553117929308}
   - component: {fileID: 761806050695344558}
   - component: {fileID: 5405857050193079755}
-  - component: {fileID: 7391275883936544316}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -451,17 +452,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7391275883936544316
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7186871618551643536}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

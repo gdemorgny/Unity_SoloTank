@@ -17,6 +17,8 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<ActorController>() != null)
         {
+            Debug.Log(_damage + " apply on : "+ collision.gameObject.name + " Collider type " + collision.collider.GetType().ToString());
+
             collision.gameObject.GetComponentInParent<ActorController>().ApplyDamage(_damage);
         }
         Destroy(gameObject);

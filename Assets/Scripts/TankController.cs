@@ -1,14 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TankController : ActorController
 {
+    [SerializeField] private PlayerDatas _playerData;
     [SerializeField] private float _forwardSpeed = 0.2f;
     [SerializeField] private float _backwardSpeed = 0.2f;
 
     [SerializeField] private float _angleSpeed = 20f;
     [SerializeField] private GameObject _cameraLocator;
+
+    public delegate void TankEvents();
+
+    public static event TankEvents OnUpdateHealth;
+    
+    
+    private void Start()
+    {
+        if (AppData.IsInFirstScene)
+        {
+            _playerData.LifePoint = _playerData.MaxLifePoint;
+        }
+        OnUpdateHealth?.Invoke();
+    }
+
 
     void Update()
     {
@@ -60,6 +77,18 @@ public class TankController : ActorController
 
         _cameraLocator.transform.SetParent(null);
         base.Destruction();
+    }
+
+    public override void ApplyDamage(int damage)
+    {
+
+        _playerData.LifePoint -=  damage;
+        if (_playerData.LifePoint <= 0)
+        {
+            Destruction();
+        }
+        OnUpdateHealth?.Invoke();
+
     }
 
 }
